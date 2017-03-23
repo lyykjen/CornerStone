@@ -10,6 +10,9 @@ int main()
 {
 	char cmd[256];
 	int num,Len,len;
+	int var = 0x00;
+	var += 400;
+	printf("var = %02x\n",var);
 	while(1)
 	{
 		//memset(cmd,0,sizeof(cmd));
