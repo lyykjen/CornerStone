@@ -16,6 +16,11 @@
            exit(1);                             \
         } 
 		
+#define ROOTPATH "/home/lyy/test"
+#define VP ROOTPATH"/gimbal.yuneec"
+		
+	
+		
 int main(int argc, char *argv[])  
 {  
 		int ch,baudrate_value = 0;  
@@ -65,6 +70,7 @@ int main(int argc, char *argv[])
 			//udp_uart_fd.fd = uart1_init(argv[2]);
 		}	
 		
+		printf("VP = %s\n",VP);
 		printf("option's ch:  %d\n",ch);
 		printf("option's optind:  %d\n",optind);  		
 		printf("option's baudrate:  %s\n",baudrate);  
