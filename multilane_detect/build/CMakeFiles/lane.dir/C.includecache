@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lvyayun/test/multilane_detect/MultiLane.h
+stdlib.h
+-
+string.h
+-
+
+/home/lvyayun/test/multilane_detect/MultiLane_function.h
+
+/home/lvyayun/test/multilane_detect/MultiLane_parameter.h
+
+/home/lvyayun/test/multilane_detect/MultiLane_video.h
+
+/home/lvyayun/test/multilane_detect/main.c
+stdio.h
+-
+memory.h
+-
+MultiLane.h
+/home/lvyayun/test/multilane_detect/MultiLane.h
+MultiLane_video.h
+/home/lvyayun/test/multilane_detect/MultiLane_video.h
+MultiLane_function.h
+/home/lvyayun/test/multilane_detect/MultiLane_function.h
+MultiLane_parameter.h
+/home/lvyayun/test/multilane_detect/MultiLane_parameter.h
+time.h
+-
+math.h
+-
+
