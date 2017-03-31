@@ -10,6 +10,8 @@ int main()
 {
 	char cmd[256];
 	int num,Len,len;
+	char *str = "abcdefg";
+	printf("sizeof(str) = %d\n",sizeof(str));
 	int var = 0x00;
 	var += 400;
 	printf("var = %02x\n",var);
