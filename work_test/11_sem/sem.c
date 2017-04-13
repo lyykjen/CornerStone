@@ -56,6 +56,7 @@ int main(void)
 	}  
   
 	printf("myglobal equals %d\n",myglobal);  
-  
+	
+	sem_destroy(&sem);
 	exit(0);  
 }  
