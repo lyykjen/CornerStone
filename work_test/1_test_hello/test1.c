@@ -6,8 +6,16 @@
 #define STD_INPUT 0  
 #define STD_OUTPUT 1  
 #define STD_ERROR 2
+
+typedef struct{
+	int a ;
+	int b;
+	int c;
+}memset_zero_t;
+
 int main()
 {
+	memset_zero_t init_var;
 	char cmd[256];
 	int num,Len,len;
 	char *str = "abcdefg";
@@ -15,8 +23,14 @@ int main()
 	int var = 0x00;
 	var += 400;
 	printf("var = %02x\n",var);
+	init_var.a = 3;
+	memset(&init_var,0,sizeof(init_var));
+	
+	printf("init_var.a = %d,init_var.b = %d,init_var.c = %d\n",init_var.a,init_var.b,init_var.c);
 	while(1)
 	{
+		
+		
 		//memset(cmd,0,sizeof(cmd));
 #if 0		
 		scanf("%s",cmd);
