@@ -1,1 +1,0 @@
-/home/lvyayun/test/test4_cmake_hello/build/CMakeFiles/hello.dir
