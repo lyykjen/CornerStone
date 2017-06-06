@@ -1,2 +1,0 @@
-/home/lvyayun/test/test5/build/libhello/CMakeFiles/libhello.dir
-/home/lvyayun/test/test5/build/src/CMakeFiles/main.dir
