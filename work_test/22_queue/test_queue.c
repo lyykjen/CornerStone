@@ -4,7 +4,7 @@
     {  
         printf("该节点元素为%d\n",i);  
     }  
-    main()  
+    int main()  
     {  
         Queue *pq = InitQueue();  
         int i,item;  
@@ -30,6 +30,7 @@
             printf("\n将队列置空成功\n");  
         DestroyQueue(pq);  
         printf("队列已被销毁\n");  
+	return 0;
     }  
 
 
