@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lvyayun/test/work_test/cJSON/cJSON.c
+string.h
+-
+stdio.h
+-
+math.h
+-
+stdlib.h
+-
+float.h
+-
+limits.h
+-
+ctype.h
+-
+locale.h
+-
+cJSON.h
+/home/lvyayun/test/work_test/cJSON/cJSON.h
+
+/home/lvyayun/test/work_test/cJSON/cJSON.h
+stddef.h
+-
+
+/home/lvyayun/test/work_test/cJSON/tests/common.c
+common.h
+/home/lvyayun/test/work_test/cJSON/tests/common.h
+
+/home/lvyayun/test/work_test/cJSON/tests/common.h
+../cJSON.c
+/home/lvyayun/test/work_test/cJSON/cJSON.c
+

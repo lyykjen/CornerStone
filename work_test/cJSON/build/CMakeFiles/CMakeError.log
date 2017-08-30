@@ -1,0 +1,48 @@
+Performing C SOURCE FILE Test FLAG_SUPPORTED_fstackprotectorstrong failed with the following output:
+Change Dir: /home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3787286936/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3787286936.dir/build.make CMakeFiles/cmTryCompileExec3787286936.dir/build
+make[1]: Entering directory `/home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3787286936.dir/src.c.o
+/usr/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -DFLAG_SUPPORTED_fstackprotectorstrong   -fstack-protector-strong -o CMakeFiles/cmTryCompileExec3787286936.dir/src.c.o   -c /home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-fstack-protector-strong'
+make[1]: *** [CMakeFiles/cmTryCompileExec3787286936.dir/src.c.o] Error 1
+make[1]: Leaving directory `/home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3787286936/fast] Error 2
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wcomma failed with the following output:
+Change Dir: /home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec116280029/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec116280029.dir/build.make CMakeFiles/cmTryCompileExec116280029.dir/build
+make[1]: Entering directory `/home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec116280029.dir/src.c.o
+/usr/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -DFLAG_SUPPORTED_Wcomma   -Wcomma -o CMakeFiles/cmTryCompileExec116280029.dir/src.c.o   -c /home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-Wcomma'
+make[1]: Leaving directory `/home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp'
+make[1]: *** [CMakeFiles/cmTryCompileExec116280029.dir/src.c.o] Error 1
+make: *** [cmTryCompileExec116280029/fast] Error 2
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test FLAG_SUPPORTED_Wformatoverflow failed with the following output:
+Change Dir: /home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec153004938/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec153004938.dir/build.make CMakeFiles/cmTryCompileExec153004938.dir/build
+make[1]: Entering directory `/home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec153004938.dir/src.c.o
+/usr/bin/cc   -std=c89 -pedantic -Wall -Wextra -Werror -Wstrict-prototypes -Wwrite-strings -Wshadow -Winit-self -Wcast-align -Wformat=2 -Wmissing-prototypes -Wstrict-overflow=2 -Wcast-qual -Wundef -Wswitch-default -Wconversion -Wc++-compat -Wdouble-promotion -Wparentheses -DFLAG_SUPPORTED_Wformatoverflow   -Wformat-overflow -o CMakeFiles/cmTryCompileExec153004938.dir/src.c.o   -c /home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-Wformat-overflow'
+make[1]: *** [CMakeFiles/cmTryCompileExec153004938.dir/src.c.o] Error 1
+make[1]: Leaving directory `/home/lvyayun/test/work_test/cJSON/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec153004938/fast] Error 2
+
+Source file was:
+int main(void) { return 0; }
