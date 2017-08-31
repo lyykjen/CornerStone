@@ -3,10 +3,30 @@
 #include <pthread.h>  
 #include <stdbool.h>  
 #include <sys/time.h>
-  
+#include <time.h>
+#include <stdint.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/sem.h>
+#include <math.h>
+ 
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;  
 static pthread_cond_t cond = PTHREAD_COND_INITIALIZER;  
 bool awake_ok_flag = false;
+
+uint64_t time_ms(void)
+{
+	long            ms; // Milliseconds
+	time_t          s;  // Seconds
+	struct timespec spec;
+
+	clock_gettime(CLOCK_MONOTONIC, &spec);
+
+	s  = spec.tv_sec;
+	ms = round(spec.tv_nsec / 1.0e6); // Convert nanoseconds to milliseconds
+
+	return s * 1000 + ms;
+}
 
 static void *proc_handle_thread(void *arg)  
 {
@@ -41,7 +61,7 @@ static void *proc_handle_thread(void *arg)
 			gettimeofday(&now, NULL);
 			outtime.tv_sec = now.tv_sec + 3;//超时时间设置为3s
 			outtime.tv_nsec = 0;//now.tv_usec * 100
-			printf("tv_sec: %ld\n",outtime.tv_sec);
+			printf("tv_sec: %ld\n",time_ms());
 		
 			 if( 0 != pthread_cond_timedwait(&cond,&mutex,&outtime))
 			 {

@@ -5,7 +5,7 @@ LDFLAGS		= -L./ -L/usr/local/lib -L/usr/lib
 
 SRC1 = sync_pthread.c
 
-LIB ?= -lpthread
+LIB ?= -lpthread -lm
 
 BIN1 = sync_pthread
 
