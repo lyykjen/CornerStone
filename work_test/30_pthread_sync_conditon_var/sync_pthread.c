@@ -2,6 +2,7 @@
 #include <stdio.h> 
 #include <pthread.h>  
 #include <stdbool.h>  
+#include <sys/time.h>
   
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;  
 static pthread_cond_t cond = PTHREAD_COND_INITIALIZER;  
@@ -9,6 +10,7 @@ bool awake_ok_flag = false;
 
 static void *proc_handle_thread(void *arg)  
 {
+#if 0	
 	while(true)
 	{
 		pthread_mutex_lock(&mutex);//这个mutex主要是用来保证pthread_cond_wait的并发性  
@@ -27,7 +29,34 @@ static void *proc_handle_thread(void *arg)
 									  //唤醒后,该进程会先锁定先pthread_mutex_lock(&mutex)，再读取资源  
 		printf("hello sync pthread\n");
 	}
-	
+#else
+	while(true)
+	{
+		struct timeval now;
+		struct timespec outtime;
+		
+		pthread_mutex_lock(&mutex);
+		while(!awake_ok_flag)
+		{		
+			gettimeofday(&now, NULL);
+			outtime.tv_sec = now.tv_sec + 3;//超时时间设置为3s
+			outtime.tv_nsec = 0;//now.tv_usec * 100
+			printf("tv_sec: %ld\n",outtime.tv_sec);
+		
+			 if( 0 != pthread_cond_timedwait(&cond,&mutex,&outtime))
+			 {
+				 printf("pthread_cond_wait exit: TIMEOUT\n");	
+				pthread_mutex_unlock(&mutex);
+				return false;	
+			 }
+		}
+		awake_ok_flag = false;
+		pthread_mutex_unlock(&mutex);
+		
+		printf("hello sync pthread\n");
+	}
+#endif	
+
 	return 0;
 }
 
@@ -44,8 +73,8 @@ int main(void)
 		awake_ok_flag = true;
 		pthread_cond_signal(&cond);  	
 		pthread_mutex_unlock(&mutex);  
-		
-		usleep(500000); //500ms
+		sleep(2);
+		//usleep(500000); //500ms
 	}
 	 pthread_cancel(pid);  
 	 printf("child thread exit\n");	
