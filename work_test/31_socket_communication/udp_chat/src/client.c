@@ -44,7 +44,9 @@ void *recvsocket(void *arg)
 		}else
 		{
 
-			printf("%s recv is %s\n", inet_ntoa(client_addr.sin_addr), buf);
+			printf("receive from %s:%d\n",
+					inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
+			printf(" %s\n", buf);	
 		}
 	}
 	
