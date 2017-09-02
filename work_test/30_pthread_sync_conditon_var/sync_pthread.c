@@ -9,6 +9,7 @@
 #include <sys/ipc.h>
 #include <sys/sem.h>
 #include <math.h>
+#include <inttypes.h>
  
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;  
 static pthread_cond_t cond = PTHREAD_COND_INITIALIZER;  
@@ -26,6 +27,19 @@ uint64_t time_ms(void)
 	ms = round(spec.tv_nsec / 1.0e6); // Convert nanoseconds to milliseconds
 
 	return s * 1000 + ms;
+}
+
+void get_time_in(struct timespec *ts, float duration_s)
+{
+	// We would rather use CLOCK_MONOTONIC but it returns instantly,
+	// so doesn't seem to work.
+	clock_gettime(CLOCK_REALTIME, ts);
+
+	const int secs = duration_s;
+	const int64_t nsecs = (duration_s - (float)secs) * 1e9;
+
+	ts->tv_sec += secs;
+	ts->tv_nsec += nsecs;
 }
 
 static void *proc_handle_thread(void *arg)  
@@ -51,29 +65,27 @@ static void *proc_handle_thread(void *arg)
 	}
 #else
 	while(true)
-	{
-		struct timeval now;
-		struct timespec outtime;
-		
+	{		
+		struct timespec ts;
+		uint64_t waiting_started_ms = 0;
 		pthread_mutex_lock(&mutex);
-		while(!awake_ok_flag)
-		{		
-			gettimeofday(&now, NULL);
-			outtime.tv_sec = now.tv_sec + 3;//超时时间设置为3s
-			outtime.tv_nsec = 0;//now.tv_usec * 100
-			printf("tv_sec: %ld\n",time_ms());
 		
-			 if( 0 != pthread_cond_timedwait(&cond,&mutex,&outtime))
-			 {
-				 printf("pthread_cond_wait exit: TIMEOUT\n");	
-				pthread_mutex_unlock(&mutex);
-				return false;	
-			 }
+		//gettimeofday(&now, NULL);//gettimeofday()时间有时候并不精确，有时候甚至会出现“时光倒流”的情况
+		get_time_in(&ts,3.0f);
+		waiting_started_ms = time_ms();
+		
+		printf("wait start\n");
+		if( 0 != pthread_cond_timedwait(&cond,&mutex,&ts))
+		{				
+			pthread_mutex_unlock(&mutex);
+			printf("wait exit TIMEOUT took: %" PRIu64 " ms\n", time_ms() - waiting_started_ms);	
+		}			
+		else
+		{
+			pthread_mutex_unlock(&mutex);
+			printf("wait exit OK took: %" PRIu64 " ms\n", time_ms() - waiting_started_ms);
+			printf("hello sync pthread\n");
 		}
-		awake_ok_flag = false;
-		pthread_mutex_unlock(&mutex);
-		
-		printf("hello sync pthread\n");
 	}
 #endif	
 
@@ -89,11 +101,12 @@ int main(void)
 	
 	for (int i = 0; i < 10; i++) 
 	{  	
+		sleep(2);
 		pthread_mutex_lock(&mutex); 			
 		awake_ok_flag = true;
 		pthread_cond_signal(&cond);  	
 		pthread_mutex_unlock(&mutex);  
-		sleep(2);
+		
 		//usleep(500000); //500ms
 	}
 	 pthread_cancel(pid);  
