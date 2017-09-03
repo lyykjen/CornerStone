@@ -118,7 +118,7 @@ int main(int arg, char *args[])
 			printf("New client: %s:%d\n",
 					inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));			
 			printf(" %s\n", buf);
-			break;
+			break;//收到客户端地址后立刻退出，让recvsocket线程继续运行
 		}
 	}
 	
@@ -126,7 +126,7 @@ int main(int arg, char *args[])
 	
 	struct pthread_sock ps;
 	ps.st = st;//服务器的socket(和服务器端口绑定在一起)
-	ps.addr = client_addr;				
+	ps.addr = client_addr;//接收来自客户端的地址信息				
 	pthread_create(&thrd1, NULL, recvsocket, &ps);
 	pthread_create(&thrd2, NULL, sendsocket, &ps);
 
