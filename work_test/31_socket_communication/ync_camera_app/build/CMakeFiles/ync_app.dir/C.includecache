@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lvyayun/test/work_test/31_socket_communication/ync_camera_app/ync_app.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+errno.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+pthread.h
+-
+stdbool.h
+-
+mavlink2/common/mavlink.h
+/home/lvyayun/test/work_test/31_socket_communication/ync_camera_app/mavlink2/common/mavlink.h
+
