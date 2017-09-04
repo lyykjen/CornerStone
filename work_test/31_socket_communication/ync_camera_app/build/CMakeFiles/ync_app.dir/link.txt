@@ -1,0 +1,1 @@
+gcc  -Wall -g --std=gnu11    CMakeFiles/ync_app.dir/ync_app.c.o  -o ync_app -rdynamic -lgcc -lgcc_s -lm -lpthread 
