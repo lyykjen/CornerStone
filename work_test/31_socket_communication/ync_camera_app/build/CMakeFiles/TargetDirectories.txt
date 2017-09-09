@@ -1,1 +1,0 @@
-/home/lvyayun/test/work_test/31_socket_communication/ync_camera_app/build/CMakeFiles/ync_app.dir

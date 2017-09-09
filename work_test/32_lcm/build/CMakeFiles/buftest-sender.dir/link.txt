@@ -1,0 +1,1 @@
+gcc  -Wall -g --std=gnu11   CMakeFiles/buftest-sender.dir/buftest-sender.c.o  -o buftest-sender -rdynamic ../liblcm/liblcm.so -lgcc -lgcc_s -lm -Wl,-rpath,/home/lyy/share/test/work_test/32_lcm/liblcm 
