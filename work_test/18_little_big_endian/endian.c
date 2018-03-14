@@ -5,9 +5,9 @@ int main(void)
 int a = 0x12345678;
 char *p = (char *)(&a);
 if (*p == 0x78) {
-printf("xiao duan!\n");
+printf("Little-Endian!\n");
 } else if (*p == 0x12) {
-printf("da duan!\n");
+printf("Big-Endian!\n");
 } else {
 printf("other!\n");
 }
