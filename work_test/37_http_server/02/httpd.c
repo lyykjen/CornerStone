@@ -1,5 +1,6 @@
 /*
     Taken from http://www.cnblogs.com/life2refuel/p/7154961.html
+    Note: chmod +x index.html
 */
 
 #include <stdio.h>
@@ -240,7 +241,7 @@ request_accept(void * arg) {
         close(cfd);
         return NULL;
     }
-
+    printf("recv_buf = %s\n", buf);
     // 合法请求处理
     for(lt = type, rt = nb; !isspace(*rt) && (lt - type) < sizeof type - 1; *lt++ = *rt++)
         ;
@@ -279,14 +280,16 @@ request_accept(void * arg) {
         close(cfd);
         return NULL;
     }
-
+    printf("type = %s, path = %s, query = %s \n", type, path, query);
     // 合法情况, 执行, 写入, 读取权限. 监测是否是 CGI程序
     if ((st.st_mode & S_IXUSR) || (st.st_mode & S_IXGRP) || (st.st_mode & S_IXOTH))
         iscgi = 0;
     if(!iscgi){
+         printf("###Not CGI\n");
          response_file(cfd, path);                
     }
     else{
+        printf("###Is CGI\n");
         request_cgi(cfd, path, type, query);
     }
     
