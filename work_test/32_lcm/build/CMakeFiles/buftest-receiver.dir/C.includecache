@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/eventlog.h
+stdio.h
+-
+stdint.h
+-
+lcm_export.h
+../include/lcm_export.h
+
+../include/lcm/lcm.h
+stdint.h
+-
+lcm_version.h
+../include/lcm/lcm_version.h
+lcm_export.h
+../include/lcm/lcm_export.h
+eventlog.h
+../include/lcm/eventlog.h
+
+../include/lcm_export.h
+
+../include/lcm_version.h
+
+/home/lyy/share/test/work_test/32_lcm/buftest-receiver.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+lcm/lcm.h
+-
+

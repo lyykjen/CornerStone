@@ -1,1 +1,1 @@
-This is my first github which can connect remote Web-github-repository and local repository!
+My first github to update linux/unix program knowledge.

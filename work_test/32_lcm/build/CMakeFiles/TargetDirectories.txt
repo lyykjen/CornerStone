@@ -1,0 +1,2 @@
+/home/lyy/share/test/work_test/32_lcm/build/CMakeFiles/buftest-receiver.dir
+/home/lyy/share/test/work_test/32_lcm/build/CMakeFiles/buftest-sender.dir

@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lvyayun/test/work_test/22_queue/Queue.h
+
+/home/lvyayun/test/work_test/22_queue/queue.c
+Queue.h
+/home/lvyayun/test/work_test/22_queue/Queue.h
+malloc.h
+-
+stdio.h
+-
+
+/home/lvyayun/test/work_test/22_queue/test_queue.c
+Queue.h
+/home/lvyayun/test/work_test/22_queue/Queue.h
+stdio.h
+-
+
