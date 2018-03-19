@@ -22,7 +22,7 @@
         CERR_EXIT(#code)
 
 //待拼接的字符串
-#define _STR_HTTPBEG "POST /index.html HTTP/1.0\r\nUser-Agent: Happy is good.\r\nHost: 127.0.0.1:"
+#define _STR_HTTPBEG "GET /index.html HTTP/1.0\r\nUser-Agent: Happy is good.\r\nHost: 192.168.1.145:"
 #define _STR_HTTPEND "\r\nConnection: close\r\n\r\n"
 
 // 简单请求一下
