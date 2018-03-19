@@ -1,3 +1,6 @@
+/*
+*两个线程同时向屏幕输出字符，竞争信号量资源(也就是输出到屏幕)
+*/
 #include <stdio.h>  
 #include <unistd.h>  
 #include <stdlib.h>  
@@ -9,18 +12,18 @@ int myglobal;
 sem_t sem;  
   
 void * thread_function(void *arg)  
-{  
-	int i,j;  
-	for (i = 0; i < 10; i += 1)  
+{    
+	for (int i = 0; i < 10; i += 1)  
 	{  
 		sem_wait(&sem);  
-		j = myglobal;  
-		j = j+1;  
-		printf(".");  
+		myglobal++;  
+		printf("￥");//向屏幕中输出数据 
 		fflush(stdout);  
-		sleep(1);  
-		myglobal = j;  
-		sem_post(&sem);  
+		sleep(rand() % 3);
+		printf("￥");//再一次向屏幕中输出数据 
+		fflush(stdout); 
+		sem_post(&sem);
+		sleep(rand() % 2);		
 	}  
 	return NULL;  
 }  
@@ -38,16 +41,17 @@ int main(void)
 		abort();  
 	}  
   
-/*  sleep(1);*/  
-  
 	for(i = 0; i < 10; i++)  
 	{  
 		sem_wait(&sem);//=0   
-		myglobal = myglobal + 1;  
-		printf("o");  
-		fflush(stdout);  
-		sleep(1);  
-		sem_post(&sem);//=1   
+		myglobal++;  
+		printf("#");//向屏幕中输出数据
+		fflush(stdout); 
+		sleep(rand() % 3);//休眠随机时间	
+		printf("#");//再一次向屏幕中输出数据
+		fflush(stdout); 
+		sem_post(&sem);//=1
+		sleep(rand() % 2);//休眠随机时间
 	}  
   
 	if(pthread_join(mythread, NULL))  
@@ -56,7 +60,7 @@ int main(void)
 		abort();  
 	}  
   
-	printf("myglobal equals %d\n",myglobal);  
+	printf("\nmyglobal equals %d\n",myglobal);  
 	
 	sem_destroy(&sem);
 	exit(0);  
