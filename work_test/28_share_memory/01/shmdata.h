@@ -5,7 +5,7 @@
   
 struct shared_use_st  
 {  
-	int written;//作为一个标志，非0：表示可读，0表示可写  
+	bool written;//作为一个标志，true：表示可写，false表示可读 
 	char text[TEXT_SZ];//记录写入和读取的文本  
 };  
   
