@@ -1,0 +1,24 @@
+{
+    "From":
+    {
+        "caller-account":
+        {
+            "_start":"sip:",
+           "_end":">",
+           "_store":"caller-account"            
+        },
+        "caller-number":
+        {
+            "_start":"sip:",
+           "_end":"@",
+           "_store":"caller-number"            
+        },
+        "proxyInfo":
+        {
+            "_start":"@",
+           "_end":">",
+           "_store":"proxyInfo"            
+        }
+         
+    }
+}

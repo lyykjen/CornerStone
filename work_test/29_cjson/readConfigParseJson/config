@@ -1,0 +1,26 @@
+{
+     "person":
+     {
+           "firstName":"Json",
+
+           "lastName":"jadena",
+
+           "email":"jadena@126.com",
+
+           "age":8,
+
+           "height":1.17
+     },
+     "angel":
+     {
+           "firstName":"Alita",
+
+           "lastName":"avatar",
+
+           "email":"avatar@126.com",
+
+           "age":18,
+
+           "height":1.68
+     }
+}
