@@ -1,0 +1,8 @@
+[2023-09-06 23:12:49.210] [upfile00] [info] test s =success
+[2023-09-06 23:12:49.210] [upfile00] [info] log is ok
+[2023-09-06 23:12:49.210] [upfile00] [warning] warning
+[2023-09-06 23:12:49.210] [upfile00] [error] this is a error
+[2023-09-06 23:17:34.469] [upfile00] [info] test s =success
+[2023-09-06 23:17:34.469] [upfile00] [info] log is ok
+[2023-09-06 23:17:34.469] [upfile00] [warning] warning
+[2023-09-06 23:17:34.469] [upfile00] [error] this is a error
