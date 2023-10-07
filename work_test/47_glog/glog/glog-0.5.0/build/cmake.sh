@@ -1,0 +1,1 @@
+cmake -DGFLAGS_NAMESPACE=google -DCMAKE_CXX_FLAGS=-fPIC -DBUILD_SHARED_LIBS=ON -DCMAKE_PREFIX_PATH=~/software/gflags-2.2.0/build ..     

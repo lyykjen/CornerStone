@@ -1,0 +1,7 @@
+Log file created at: 2023/10/07 18:29:17
+Running on machine: ubuntu
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20231007 18:29:17.896025  6620 glogtest2.cc:15] hello i am info!
+W20231007 18:29:17.896150  6620 glogtest2.cc:16] hello i am warning test
+E20231007 18:29:17.896239  6620 glogtest2.cc:17] hello i am error test
